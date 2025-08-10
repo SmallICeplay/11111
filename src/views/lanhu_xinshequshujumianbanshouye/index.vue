@@ -674,7 +674,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng7acc48bb08f97d8c44e4c97d1cc0248f0d4c3862b3c7c85ec38295d72333751e.png"
             />
-            <span class="text-group_73">按人数排名</span>
+            <span class="text-group_73">按��数排名</span>
           </div>
           <div class="image-text_96 flex-row justify-between">
             <img
@@ -1267,6 +1267,19 @@ export default {
     setLanguage(lang) {
       this.currentLanguage = lang;
       this.showLanguageDropdown = false;
+    },
+    selectChain(chain) {
+      this.selectedChain = this.selectedChain === chain ? null : chain;
+    },
+    selectCommunity(community) {
+      this.selectedCommunity = this.selectedCommunity === community ? null : community;
+    },
+    selectRegion(region) {
+      this.selectedRegion = this.selectedRegion === region ? null : region;
+    },
+    handleSearch() {
+      // Implement search functionality
+      console.log('Searching for:', this.searchQuery);
     },
     async getData() {
       try {
