@@ -302,7 +302,7 @@
                   referrerpolicy="no-referrer"
                   src="./assets/img/SketchPng196c7cba5e4eeae7c1290595aa2df27b6eee995a465efce271535783554de1c4.png"
                 />
-                <span class="text_56">总覆盖人数/已接入社区</span>
+                <span class="text_56">总覆盖人数/已���入社区</span>
               </div>
               <div class="box_20 flex-col">
                 <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量��易数据估值</span></div>
@@ -674,7 +674,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng7acc48bb08f97d8c44e4c97d1cc0248f0d4c3862b3c7c85ec38295d72333751e.png"
             />
-            <span class="text-group_73">按��数排名</span>
+            <span class="text-group_73">按人数排名</span>
           </div>
           <div class="image-text_96 flex-row justify-between">
             <img
@@ -710,10 +710,10 @@
           </div>
         </div>
 
-        <div class="grid_1 flex-row">
-
+        <!-- Community Cards Grid -->
+        <div class="community-grid">
           <div
-              class="section_66 flex-col"
+              class="community-card btn-animate"
               v-for="(item, index) in data.data"
               :key="index"
           >
