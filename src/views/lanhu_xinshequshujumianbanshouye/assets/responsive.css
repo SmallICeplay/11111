@@ -674,6 +674,20 @@ body {
 
 /* Small Mobile Styles */
 @media (max-width: 480px) {
+  .filters-section {
+    padding: 12px;
+    margin: 12px;
+  }
+
+  .filter-title {
+    font-size: 14px;
+  }
+
+  .filter-item {
+    flex: 1 1 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
   .header-content {
     padding: 8px 12px;
     height: 64px;
