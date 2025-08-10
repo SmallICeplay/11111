@@ -591,6 +591,42 @@ body {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .filters-section {
+    padding: 16px;
+    margin: 16px;
+    border-radius: 16px;
+  }
+
+  .filter-group {
+    margin-bottom: 24px;
+  }
+
+  .filter-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .filter-items {
+    gap: 8px;
+  }
+
+  .filter-item {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-box {
+    max-width: 100%;
+    margin: 16px 0 0 0;
+  }
+
+  .search-input {
+    padding: 14px 40px 14px 16px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
   .header-content {
     padding: 12px 16px;
   }
