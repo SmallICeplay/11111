@@ -844,6 +844,48 @@ body {
     padding: 14px 40px 14px 16px;
     font-size: 16px; /* Prevent zoom on iOS */
   }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .community-card {
+    padding: 16px;
+  }
+
+  .card-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card-title {
+    font-size: 15px;
+  }
+
+  .member-count {
+    font-size: 13px;
+  }
+
+  .stat-item {
+    font-size: 11px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 12px;
+    font-size: 13px;
+  }
   .header-content {
     padding: 12px 16px;
   }
