@@ -947,6 +947,23 @@ body {
     padding: 12px;
     font-size: 14px;
   }
+
+  .community-grid {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .community-card {
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .member-count {
+    font-size: 12px;
+  }
   .header-content {
     padding: 8px 12px;
     height: 64px;
