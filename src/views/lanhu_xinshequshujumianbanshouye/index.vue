@@ -302,7 +302,7 @@
                   referrerpolicy="no-referrer"
                   src="./assets/img/SketchPng196c7cba5e4eeae7c1290595aa2df27b6eee995a465efce271535783554de1c4.png"
                 />
-                <span class="text_56">总覆盖人数/已���入社区</span>
+                <span class="text_56">总覆盖人数/已接入社区</span>
               </div>
               <div class="box_20 flex-col">
                 <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量��易数据估值</span></div>
@@ -717,82 +717,84 @@
               v-for="(item, index) in data.data"
               :key="index"
           >
-            <!-- 顶部信息 -->
-            <div class="section_67 flex-row">
-              <div class="group_123 flex-col">
-                <div class="image-wrapper_61 flex-col">
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="card-avatar">
+                <img
+                    class="avatar-image"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng527266c06970304632275b129e3bc551ff5a80e9880c777e36ed91f0eb529d13.png"
+                />
+              </div>
+
+              <div class="card-info">
+                <div class="card-title-row">
+                  <h3 class="card-title">{{ item.vx_qunname }}</h3>
+                  <span class="member-count">({{ item.vx_qunrs }}{{ currentLanguage === 'zh' ? '人' : ' members' }})</span>
+                </div>
+                <div class="card-stats">
+                  <span class="stat-item">{{ currentLanguage === 'zh' ? '7日活跃：' : '7-day active: ' }}{{ item.hyd }}{{ currentLanguage === 'zh' ? '人' : ' users' }}</span>
+                  <span class="stat-item">{{ item.msg_count }}{{ currentLanguage === 'zh' ? '条消息' : ' messages' }}</span>
+                </div>
+              </div>
+
+              <button class="card-bookmark btn-animate">
+                <img
+                    class="bookmark-icon"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng26d24569117b92d4bd5f00454a80f71112a75f9ce6af7a71bbd065120c52b4ca.png"
+                />
+              </button>
+            </div>
+
+            <!-- Card Tags -->
+            <div class="card-tags">
+              <span class="tag">#Meme</span>
+              <span class="tag">#{{ currentLanguage === 'zh' ? '土狗' : 'Meme Token' }}</span>
+              <span class="tag">#SOL</span>
+            </div>
+
+            <!-- Card Metrics -->
+            <div class="card-metrics">
+              <div class="metric-item">
+                <img
+                    class="metric-icon"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng0c8b48300b9dc67c9161f98e5d4cfd0f81f0800c06efd0e0226244743d48accb.png"
+                />
+                <div class="metric-info">
+                  <span class="metric-label">{{ currentLanguage === 'zh' ? '估值' : 'Valuation' }}: {{ item.jcz }} XING</span>
+                  <span class="metric-change positive">+1.24%</span>
                   <img
-                      class="thumbnail_118"
+                      class="trend-icon"
                       referrerpolicy="no-referrer"
-                      src="./assets/img/SketchPng527266c06970304632275b129e3bc551ff5a80e9880c777e36ed91f0eb529d13.png"
+                      src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                   />
                 </div>
               </div>
-
-              <div class="group_124 flex-col justify-between">
-                <div class="text-wrapper_160 flex-row justify-between">
-                  <!-- 群名 -->
-                  <span class="text_card_1">{{ item.vx_qunname }}</span>
-                  <!-- 群人数 -->
-                  <span class="text_316">({{ item.vx_qunrs }}人)</span>
-                </div>
-                <div class="text-wrapper_161 flex-row justify-between">
-                  <span class="text_317">7日活跃：{{ item.hyd }}人</span>
-                  <span class="text_318">{{ item.msg_count }}条消息</span>
-                </div>
+              <div class="metric-traffic">
+                <span>{{ currentLanguage === 'zh' ? '流量值' : 'Traffic Value' }}: {{ item.msg_factor }}</span>
               </div>
-
-              <img
-                  class="label_57"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng26d24569117b92d4bd5f00454a80f71112a75f9ce6af7a71bbd065120c52b4ca.png"
-              />
             </div>
 
-            <!-- 标签 -->
-            <span class="text_319">#Meme&nbsp;&nbsp;&nbsp;#土狗&nbsp;&nbsp;#sol</span>
-
-            <!-- 估值 / 流量值 -->
-            <div class="section_68 flex-row">
-              <img
-                  class="thumbnail_119"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng0c8b48300b9dc67c9161f98e5d4cfd0f81f0800c06efd0e0226244743d48accb.png"
-              />
-              <div class="image-text_106 flex-row">
-                <div class="text-group_84 flex-row justify-between">
-                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
-                  <span class="text_321">+1.24%</span>
-                </div>
+            <!-- Card Actions -->
+            <div class="card-actions">
+              <button class="action-btn primary btn-animate">
                 <img
-                    class="thumbnail_120"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
-                />
-              </div>
-              <span class="text_322">流量值:{{ item.msg_factor }}</span>
-            </div>
-
-            <!-- 底部功能按钮 -->
-            <div class="section_69 flex-row justify-between">
-              <div class="image-text_107 flex-row justify-between">
-                <img
-                    class="label_58"
+                    class="action-icon"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPngf0b54efe2ace70204380cdbc94b922a3c0757eae4bce35908b7cee7fc28924c2.png"
                 />
-                <span class="text-group_85">广告和空投投放</span>
-              </div>
-              <div class="section_70 flex-row">
-                <div class="image-text_108 flex-row justify-between">
-                  <img
-                      class="label_59"
-                      referrerpolicy="no-referrer"
-                      src="./assets/img/SketchPng249b7186377e75b92373958e7d597bc0b7e5251f43f182a70b8e5b15fc40bf27.png"
-                  />
-                  <span class="text-group_86">连接</span>
-                </div>
-              </div>
+                <span>{{ currentLanguage === 'zh' ? '广告和空��投放' : 'Ads & Airdrops' }}</span>
+              </button>
+              <button class="action-btn secondary btn-animate">
+                <img
+                    class="action-icon"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng249b7186377e75b92373958e7d597bc0b7e5251f43f182a70b8e5b15fc40bf27.png"
+                />
+                <span>{{ currentLanguage === 'zh' ? '连接' : 'Connect' }}</span>
+              </button>
             </div>
           </div>
         </div>
