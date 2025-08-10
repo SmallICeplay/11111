@@ -305,7 +305,7 @@
                 <span class="text_56">总覆盖人数/已接入社区</span>
               </div>
               <div class="box_20 flex-col">
-                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量交易数据估值</span></div>
+                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量��易数据估值</span></div>
                 <div class="group_97 flex-row justify-between">
                   <div class="text-wrapper_138 flex-col justify-between">
                     <span class="text_58">$30k</span>
@@ -682,7 +682,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">按成交额排名</span>
+            <span class="text-group_74">��成交额排名</span>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>
@@ -1290,3 +1290,4 @@ export default {
 };
 </script>
 <style scoped lang="css" src="./assets/index.css" />
+<style scoped lang="css" src="./assets/responsive.css" />
