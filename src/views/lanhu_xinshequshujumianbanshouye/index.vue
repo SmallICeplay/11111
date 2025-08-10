@@ -989,6 +989,10 @@ export default {
       currentLanguage: 'zh',
       showMobileMenu: false,
       showLanguageDropdown: false,
+      selectedChain: null,
+      selectedCommunity: null,
+      selectedRegion: null,
+      searchQuery: '',
       translations: {
         zh: {
           menu: '菜单',
