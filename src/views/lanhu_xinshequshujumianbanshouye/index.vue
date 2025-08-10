@@ -1,45 +1,100 @@
 <template>
   <div class="page flex-col">
     <div class="block_1 flex-col">
-      <div class="block_2 flex-row">
-        <img
-          class="label_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
-        />
-        <span class="text_1">XBOT</span>
-        <div class="box_1 flex-row">
-          <div class="text-wrapper_1 flex-col"><span class="text_2">首页</span></div>
-          <div class="text-wrapper_2 flex-col"><span class="text_3">社区入驻</span></div>
-          <div class="text-wrapper_3 flex-col"><span class="text_4">广告投放</span></div>
-          <div class="text-wrapper_4 flex-col"><span class="text_5">社区NFT</span></div>
-          <div class="text-wrapper_5 flex-col"><span class="text_6">关注我们</span></div>
-        </div>
-        <img
-          class="image_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-        />
-        <img
-          class="image_2"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
-        />
-        <div class="text-wrapper_6 flex-col"><span class="text_7">登录</span></div>
-        <div class="box_2 flex-row">
-          <img
-            class="label_2"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
-          />
-          <span class="text_8">语言/国家地区</span>
-          <img
-            class="thumbnail_1"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
-          />
+      <!-- Mobile Menu Overlay -->
+      <div v-if="showMobileMenu" class="mobile-menu-overlay" @click="closeMobileMenu">
+        <div class="mobile-menu" @click.stop>
+          <div class="mobile-menu-header">
+            <span class="mobile-menu-title">{{ $t('menu') }}</span>
+            <button class="mobile-menu-close btn-animate" @click="closeMobileMenu">×</button>
+          </div>
+          <nav class="mobile-nav">
+            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('home') }}</a>
+            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('community') }}</a>
+            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('advertising') }}</a>
+            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('nft') }}</a>
+            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('follow') }}</a>
+          </nav>
+          <div class="mobile-menu-footer">
+            <button class="mobile-login-btn btn-animate" @click="closeMobileMenu">{{ $t('login') }}</button>
+            <div class="mobile-language-switcher">
+              <button @click="toggleLanguage" class="language-btn btn-animate">
+                {{ currentLanguage === 'zh' ? '中文' : 'English' }}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <!-- Logo -->
+          <div class="logo-section">
+            <img
+              class="logo-icon"
+              referrerpolicy="no-referrer"
+              src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
+            />
+            <span class="logo-text">XBOT</span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <a href="#" class="nav-item btn-animate">{{ $t('home') }}</a>
+            <a href="#" class="nav-item nav-item-active btn-animate">{{ $t('community') }}</a>
+            <a href="#" class="nav-item btn-animate">{{ $t('advertising') }}</a>
+            <a href="#" class="nav-item btn-animate">{{ $t('nft') }}</a>
+            <a href="#" class="nav-item btn-animate">{{ $t('follow') }}</a>
+          </nav>
+
+          <!-- Desktop Actions -->
+          <div class="desktop-actions">
+            <img
+              class="action-icon btn-animate"
+              referrerpolicy="no-referrer"
+              src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
+            />
+            <img
+              class="action-icon btn-animate"
+              referrerpolicy="no-referrer"
+              src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
+            />
+            <button class="login-btn btn-animate">{{ $t('login') }}</button>
+            <div class="language-switcher">
+              <button @click="showLanguageDropdown = !showLanguageDropdown" class="language-btn btn-animate">
+                <img
+                  class="language-icon"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
+                />
+                <span>{{ $t('language') }}</span>
+                <img
+                  class="dropdown-arrow"
+                  :class="{ 'rotated': showLanguageDropdown }"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
+                />
+              </button>
+              <div v-if="showLanguageDropdown" class="language-dropdown">
+                <button @click="setLanguage('zh')" class="dropdown-item btn-animate" :class="{ active: currentLanguage === 'zh' }">
+                  🇨🇳 中文
+                </button>
+                <button @click="setLanguage('en')" class="dropdown-item btn-animate" :class="{ active: currentLanguage === 'en' }">
+                  🇺🇸 English
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn btn-animate" @click="openMobileMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </header>
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">
@@ -54,7 +109,7 @@
               </div>
               <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
               <div class="text-wrapper_126 flex-row justify-between">
-                <span class="text_11">申请发送邮件至</span>
+                <span class="text_11">申请发送��件至</span>
                 <span class="text_12">suopu&#64;mxccorp.com</span>
               </div>
             </div>
@@ -931,6 +986,51 @@
 export default {
   data() {
     return {
+      currentLanguage: 'zh',
+      showMobileMenu: false,
+      showLanguageDropdown: false,
+      translations: {
+        zh: {
+          menu: '菜单',
+          home: '首页',
+          community: '社区入驻',
+          advertising: '广告投放',
+          nft: '社区NFT',
+          follow: '关注我们',
+          login: '登录',
+          language: '语言/国家地区',
+          search: '搜索',
+          hotRanking: '按热度排名',
+          memberRanking: '按人数排名',
+          volumeRanking: '按成交额排名',
+          platform: '社区平台',
+          category: '社区分类',
+          region: '全部地区',
+          allChains: '全部公链',
+          allCommunities: '全部社区',
+          allRegions: '全部地区'
+        },
+        en: {
+          menu: 'Menu',
+          home: 'Home',
+          community: 'Community',
+          advertising: 'Advertising',
+          nft: 'Community NFT',
+          follow: 'Follow Us',
+          login: 'Login',
+          language: 'Language/Region',
+          search: 'Search',
+          hotRanking: 'Hot Ranking',
+          memberRanking: 'Member Ranking',
+          volumeRanking: 'Volume Ranking',
+          platform: 'Platform',
+          category: 'Category',
+          region: 'All Regions',
+          allChains: 'All Chains',
+          allCommunities: 'All Communities',
+          allRegions: 'All Regions'
+        }
+      },
       loopData0: [
         {
           lanhuBg0: 'transparent',
@@ -1142,7 +1242,28 @@ export default {
       data: null
     };
   },
+  computed: {
+    $t() {
+      return (key) => this.translations[this.currentLanguage][key] || key;
+    }
+  },
   methods: {
+    openMobileMenu() {
+      this.showMobileMenu = true;
+      document.body.style.overflow = 'hidden';
+    },
+    closeMobileMenu() {
+      this.showMobileMenu = false;
+      document.body.style.overflow = 'auto';
+    },
+    toggleLanguage() {
+      this.currentLanguage = this.currentLanguage === 'zh' ? 'en' : 'zh';
+      this.showLanguageDropdown = false;
+    },
+    setLanguage(lang) {
+      this.currentLanguage = lang;
+      this.showLanguageDropdown = false;
+    },
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {
