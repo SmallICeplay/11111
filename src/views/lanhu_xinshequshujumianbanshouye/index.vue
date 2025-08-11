@@ -1,100 +1,45 @@
 <template>
   <div class="page flex-col">
     <div class="block_1 flex-col">
-      <!-- Mobile Menu Overlay -->
-      <div v-if="showMobileMenu" class="mobile-menu-overlay" @click="closeMobileMenu">
-        <div class="mobile-menu" @click.stop>
-          <div class="mobile-menu-header">
-            <span class="mobile-menu-title">{{ $t('menu') }}</span>
-            <button class="mobile-menu-close btn-animate" @click="closeMobileMenu">×</button>
-          </div>
-          <nav class="mobile-nav">
-            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('home') }}</a>
-            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('community') }}</a>
-            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('advertising') }}</a>
-            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('nft') }}</a>
-            <a href="#" class="mobile-nav-item btn-animate" @click="closeMobileMenu">{{ $t('follow') }}</a>
-          </nav>
-          <div class="mobile-menu-footer">
-            <button class="mobile-login-btn btn-animate" @click="closeMobileMenu">{{ $t('login') }}</button>
-            <div class="mobile-language-switcher">
-              <button @click="toggleLanguage" class="language-btn btn-animate">
-                {{ currentLanguage === 'zh' ? '中文' : 'English' }}
-              </button>
-            </div>
-          </div>
+      <div class="block_2 flex-row">
+        <img
+          class="label_1"
+          referrerpolicy="no-referrer"
+          src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
+        />
+        <span class="text_1">XBOT</span>
+        <div class="box_1 flex-row">
+          <div class="text-wrapper_1 flex-col"><span class="text_2">首页</span></div>
+          <div class="text-wrapper_2 flex-col"><span class="text_3">社区入驻</span></div>
+          <div class="text-wrapper_3 flex-col"><span class="text_4">广告投放</span></div>
+          <div class="text-wrapper_4 flex-col"><span class="text_5">社区NFT</span></div>
+          <div class="text-wrapper_5 flex-col"><span class="text_6">关注我们</span></div>
+        </div>
+        <img
+          class="image_1"
+          referrerpolicy="no-referrer"
+          src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
+        />
+        <img
+          class="image_2"
+          referrerpolicy="no-referrer"
+          src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
+        />
+        <div class="text-wrapper_6 flex-col"><span class="text_7">登录</span></div>
+        <div class="box_2 flex-row">
+          <img
+            class="label_2"
+            referrerpolicy="no-referrer"
+            src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
+          />
+          <span class="text_8">语言/国家地区</span>
+          <img
+            class="thumbnail_1"
+            referrerpolicy="no-referrer"
+            src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
+          />
         </div>
       </div>
-
-      <!-- Header -->
-      <header class="header">
-        <div class="header-content">
-          <!-- Logo -->
-          <div class="logo-section">
-            <img
-              class="logo-icon"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
-            />
-            <span class="logo-text">XBOT</span>
-          </div>
-
-          <!-- Desktop Navigation -->
-          <nav class="desktop-nav">
-            <a href="#" class="nav-item btn-animate">{{ $t('home') }}</a>
-            <a href="#" class="nav-item nav-item-active btn-animate">{{ $t('community') }}</a>
-            <a href="#" class="nav-item btn-animate">{{ $t('advertising') }}</a>
-            <a href="#" class="nav-item btn-animate">{{ $t('nft') }}</a>
-            <a href="#" class="nav-item btn-animate">{{ $t('follow') }}</a>
-          </nav>
-
-          <!-- Desktop Actions -->
-          <div class="desktop-actions">
-            <img
-              class="action-icon btn-animate"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-            />
-            <img
-              class="action-icon btn-animate"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
-            />
-            <button class="login-btn btn-animate">{{ $t('login') }}</button>
-            <div class="language-switcher">
-              <button @click="showLanguageDropdown = !showLanguageDropdown" class="language-btn btn-animate">
-                <img
-                  class="language-icon"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
-                />
-                <span>{{ $t('language') }}</span>
-                <img
-                  class="dropdown-arrow"
-                  :class="{ 'rotated': showLanguageDropdown }"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
-                />
-              </button>
-              <div v-if="showLanguageDropdown" class="language-dropdown">
-                <button @click="setLanguage('zh')" class="dropdown-item btn-animate" :class="{ active: currentLanguage === 'zh' }">
-                  🇨🇳 中文
-                </button>
-                <button @click="setLanguage('en')" class="dropdown-item btn-animate" :class="{ active: currentLanguage === 'en' }">
-                  🇺🇸 English
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <button class="mobile-menu-btn btn-animate" @click="openMobileMenu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-      </header>
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">
@@ -109,7 +54,7 @@
               </div>
               <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
               <div class="text-wrapper_126 flex-row justify-between">
-                <span class="text_11">申请发送��件至</span>
+                <span class="text_11">申请发送邮件至</span>
                 <span class="text_12">suopu&#64;mxccorp.com</span>
               </div>
             </div>
@@ -305,7 +250,7 @@
                 <span class="text_56">总覆盖人数/已接入社区</span>
               </div>
               <div class="box_20 flex-col">
-                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量��易数据估值</span></div>
+                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量交易数据估值</span></div>
                 <div class="group_97 flex-row justify-between">
                   <div class="text-wrapper_138 flex-col justify-between">
                     <span class="text_58">$30k</span>
@@ -682,7 +627,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">��成交额排名</span>
+            <span class="text-group_74">按成交额排名</span>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>
@@ -710,91 +655,89 @@
           </div>
         </div>
 
-        <!-- Community Cards Grid -->
-        <div class="community-grid">
+        <div class="grid_1 flex-row">
+
           <div
-              class="community-card btn-animate"
+              class="section_66 flex-col"
               v-for="(item, index) in data.data"
               :key="index"
           >
-            <!-- Card Header -->
-            <div class="card-header">
-              <div class="card-avatar">
-                <img
-                    class="avatar-image"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng527266c06970304632275b129e3bc551ff5a80e9880c777e36ed91f0eb529d13.png"
-                />
-              </div>
-
-              <div class="card-info">
-                <div class="card-title-row">
-                  <h3 class="card-title">{{ item.vx_qunname }}</h3>
-                  <span class="member-count">({{ item.vx_qunrs }}{{ currentLanguage === 'zh' ? '人' : ' members' }})</span>
-                </div>
-                <div class="card-stats">
-                  <span class="stat-item">{{ currentLanguage === 'zh' ? '7日活跃：' : '7-day active: ' }}{{ item.hyd }}{{ currentLanguage === 'zh' ? '人' : ' users' }}</span>
-                  <span class="stat-item">{{ item.msg_count }}{{ currentLanguage === 'zh' ? '条消息' : ' messages' }}</span>
-                </div>
-              </div>
-
-              <button class="card-bookmark btn-animate">
-                <img
-                    class="bookmark-icon"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng26d24569117b92d4bd5f00454a80f71112a75f9ce6af7a71bbd065120c52b4ca.png"
-                />
-              </button>
-            </div>
-
-            <!-- Card Tags -->
-            <div class="card-tags">
-              <span class="tag">#Meme</span>
-              <span class="tag">#{{ currentLanguage === 'zh' ? '土狗' : 'Meme Token' }}</span>
-              <span class="tag">#SOL</span>
-            </div>
-
-            <!-- Card Metrics -->
-            <div class="card-metrics">
-              <div class="metric-item">
-                <img
-                    class="metric-icon"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng0c8b48300b9dc67c9161f98e5d4cfd0f81f0800c06efd0e0226244743d48accb.png"
-                />
-                <div class="metric-info">
-                  <span class="metric-label">{{ currentLanguage === 'zh' ? '估值' : 'Valuation' }}: {{ item.jcz }} XING</span>
-                  <span class="metric-change positive">+1.24%</span>
+            <!-- 顶部信息 -->
+            <div class="section_67 flex-row">
+              <div class="group_123 flex-col">
+                <div class="image-wrapper_61 flex-col">
                   <img
-                      class="trend-icon"
+                      class="thumbnail_118"
                       referrerpolicy="no-referrer"
-                      src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
+                      src="./assets/img/SketchPng527266c06970304632275b129e3bc551ff5a80e9880c777e36ed91f0eb529d13.png"
                   />
                 </div>
               </div>
-              <div class="metric-traffic">
-                <span>{{ currentLanguage === 'zh' ? '流量值' : 'Traffic Value' }}: {{ item.msg_factor }}</span>
+
+              <div class="group_124 flex-col justify-between">
+                <div class="text-wrapper_160 flex-row justify-between">
+                  <!-- 群名 -->
+                  <span class="text_card_1">{{ item.vx_qunname }}</span>
+                  <!-- 群人数 -->
+                  <span class="text_316">({{ item.vx_qunrs }}人)</span>
+                </div>
+                <div class="text-wrapper_161 flex-row justify-between">
+                  <span class="text_317">7日活跃：{{ item.hyd }}人</span>
+                  <span class="text_318">{{ item.msg_count }}条消息</span>
+                </div>
               </div>
+
+              <img
+                  class="label_57"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng26d24569117b92d4bd5f00454a80f71112a75f9ce6af7a71bbd065120c52b4ca.png"
+              />
             </div>
 
-            <!-- Card Actions -->
-            <div class="card-actions">
-              <button class="action-btn primary btn-animate">
+            <!-- 标签 -->
+            <span class="text_319">#Meme&nbsp;&nbsp;&nbsp;#土狗&nbsp;&nbsp;#sol</span>
+
+            <!-- 估值 / 流量值 -->
+            <div class="section_68 flex-row">
+              <img
+                  class="thumbnail_119"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng0c8b48300b9dc67c9161f98e5d4cfd0f81f0800c06efd0e0226244743d48accb.png"
+              />
+              <div class="image-text_106 flex-row">
+                <div class="text-group_84 flex-row justify-between">
+                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
+                  <span class="text_321">+1.24%</span>
+                </div>
                 <img
-                    class="action-icon"
+                    class="thumbnail_120"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
+                />
+              </div>
+              <span class="text_322">流量值:{{ item.msg_factor }}</span>
+            </div>
+
+            <!-- 底部功能按钮 -->
+            <div class="section_69 flex-row justify-between">
+              <div class="image-text_107 flex-row justify-between">
+                <img
+                    class="label_58"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPngf0b54efe2ace70204380cdbc94b922a3c0757eae4bce35908b7cee7fc28924c2.png"
                 />
-                <span>{{ currentLanguage === 'zh' ? '广告和空��投放' : 'Ads & Airdrops' }}</span>
-              </button>
-              <button class="action-btn secondary btn-animate">
-                <img
-                    class="action-icon"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng249b7186377e75b92373958e7d597bc0b7e5251f43f182a70b8e5b15fc40bf27.png"
-                />
-                <span>{{ currentLanguage === 'zh' ? '连接' : 'Connect' }}</span>
-              </button>
+                <span class="text-group_85">广告和空投投放</span>
+              </div>
+              <div class="section_70 flex-row">
+                <div class="image-text_108 flex-row justify-between">
+                  <img
+                      class="label_59"
+                      referrerpolicy="no-referrer"
+                      src="./assets/img/SketchPng249b7186377e75b92373958e7d597bc0b7e5251f43f182a70b8e5b15fc40bf27.png"
+                  />
+                  <span class="text-group_86">连接</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -988,55 +931,6 @@
 export default {
   data() {
     return {
-      currentLanguage: 'zh',
-      showMobileMenu: false,
-      showLanguageDropdown: false,
-      selectedChain: null,
-      selectedCommunity: null,
-      selectedRegion: null,
-      searchQuery: '',
-      translations: {
-        zh: {
-          menu: '菜单',
-          home: '首页',
-          community: '社区入驻',
-          advertising: '广告投放',
-          nft: '社区NFT',
-          follow: '关注我们',
-          login: '登录',
-          language: '语言/国家地区',
-          search: '搜索',
-          hotRanking: '按热度排名',
-          memberRanking: '按人数排名',
-          volumeRanking: '按成交额排名',
-          platform: '社区平台',
-          category: '社区分类',
-          region: '全部地区',
-          allChains: '全部公链',
-          allCommunities: '全部社区',
-          allRegions: '全部地区'
-        },
-        en: {
-          menu: 'Menu',
-          home: 'Home',
-          community: 'Community',
-          advertising: 'Advertising',
-          nft: 'Community NFT',
-          follow: 'Follow Us',
-          login: 'Login',
-          language: 'Language/Region',
-          search: 'Search',
-          hotRanking: 'Hot Ranking',
-          memberRanking: 'Member Ranking',
-          volumeRanking: 'Volume Ranking',
-          platform: 'Platform',
-          category: 'Category',
-          region: 'All Regions',
-          allChains: 'All Chains',
-          allCommunities: 'All Communities',
-          allRegions: 'All Regions'
-        }
-      },
       loopData0: [
         {
           lanhuBg0: 'transparent',
@@ -1248,41 +1142,7 @@ export default {
       data: null
     };
   },
-  computed: {
-    $t() {
-      return (key) => this.translations[this.currentLanguage][key] || key;
-    }
-  },
   methods: {
-    openMobileMenu() {
-      this.showMobileMenu = true;
-      document.body.style.overflow = 'hidden';
-    },
-    closeMobileMenu() {
-      this.showMobileMenu = false;
-      document.body.style.overflow = 'auto';
-    },
-    toggleLanguage() {
-      this.currentLanguage = this.currentLanguage === 'zh' ? 'en' : 'zh';
-      this.showLanguageDropdown = false;
-    },
-    setLanguage(lang) {
-      this.currentLanguage = lang;
-      this.showLanguageDropdown = false;
-    },
-    selectChain(chain) {
-      this.selectedChain = this.selectedChain === chain ? null : chain;
-    },
-    selectCommunity(community) {
-      this.selectedCommunity = this.selectedCommunity === community ? null : community;
-    },
-    selectRegion(region) {
-      this.selectedRegion = this.selectedRegion === region ? null : region;
-    },
-    handleSearch() {
-      // Implement search functionality
-      console.log('Searching for:', this.searchQuery);
-    },
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {
@@ -1309,4 +1169,3 @@ export default {
 };
 </script>
 <style scoped lang="css" src="./assets/index.css" />
-<style scoped lang="css" src="./assets/responsive.css" />
